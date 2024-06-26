@@ -28,70 +28,71 @@ public class UserDaoJDBCImpl implements UserDao {
     private final String CLEAN = "TRUNCATE TABLE pre_project.users";
 
     public void createUsersTable() {
-        try (Connection connection = Util.getConnection();
-             PreparedStatement ps = connection.prepareStatement(CREATE_TABLE);) {
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+//        try (Connection connection = Util.getConnection();
+//             PreparedStatement ps = connection.prepareStatement(CREATE_TABLE);) {
+//            ps.executeUpdate();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     public void dropUsersTable() {
-        try (Connection connection = Util.getConnection();
-             PreparedStatement ps = connection.prepareStatement(DROP_TABLE);) {
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+//        try (Connection connection = Util.getConnection();
+//             PreparedStatement ps = connection.prepareStatement(DROP_TABLE);) {
+//            ps.executeUpdate();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        try (Connection connection = Util.getConnection();
-             PreparedStatement ps = connection.prepareStatement(INSERT_USERS);) {
-            ps.setString(1, name);
-            ps.setString(2, lastName);
-            ps.setByte(3, age);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+//        try (Connection connection = Util.getConnection();
+//             PreparedStatement ps = connection.prepareStatement(INSERT_USERS);) {
+//            ps.setString(1, name);
+//            ps.setString(2, lastName);
+//            ps.setByte(3, age);
+//            ps.executeUpdate();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     public void removeUserById(long id) {
-        try (Connection connection = Util.getConnection();
-             PreparedStatement ps = connection.prepareStatement(DELETE);) {
-            ps.setLong(1, id);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+//        try (Connection connection = Util.getConnection();
+//             PreparedStatement ps = connection.prepareStatement(DELETE);) {
+//            ps.setLong(1, id);
+//            ps.executeUpdate();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     public List<User> getAllUsers() {
-        List<User> users = new ArrayList<>();
-        try (Connection connection = Util.getConnection();
-             PreparedStatement ps = connection.prepareStatement(SELECT_ALL);
-             ResultSet rs = ps.executeQuery();) {
-            while (rs.next()) {
-                User user = new User();
-                user.setId(rs.getLong("id"));
-                user.setName(rs.getString("name"));
-                user.setLastName(rs.getString("lastName"));
-                user.setAge(rs.getByte("age"));
-                users.add(user);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return users;
+//        List<User> users = new ArrayList<>();
+//        try (Connection connection = Util.getConnection();
+//             PreparedStatement ps = connection.prepareStatement(SELECT_ALL);
+//             ResultSet rs = ps.executeQuery();) {
+//            while (rs.next()) {
+//                User user = new User();
+//                user.setId(rs.getLong("id"));
+//                user.setName(rs.getString("name"));
+//                user.setLastName(rs.getString("lastName"));
+//                user.setAge(rs.getByte("age"));
+//                users.add(user);
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        return users;
+        return null;
     }
 
     public void cleanUsersTable() {
-        try (Connection connection = Util.getConnection();
-             PreparedStatement ps = connection.prepareStatement(CLEAN);) {
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+//        try (Connection connection = Util.getConnection();
+//             PreparedStatement ps = connection.prepareStatement(CLEAN);) {
+//            ps.executeUpdate();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 }
