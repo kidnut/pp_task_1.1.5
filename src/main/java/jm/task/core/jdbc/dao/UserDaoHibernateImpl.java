@@ -93,7 +93,6 @@ public class UserDaoHibernateImpl implements UserDao {
                 session.getTransaction().rollback();
             }
         }
-        System.out.println(users);
         return users;
     }
 
