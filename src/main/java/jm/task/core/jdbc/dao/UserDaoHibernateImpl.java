@@ -31,10 +31,6 @@ public class UserDaoHibernateImpl implements UserDao {
             if(session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
             }
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
     }
 
@@ -51,10 +47,6 @@ public class UserDaoHibernateImpl implements UserDao {
             if(session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
             }
-        } finally {
-            if (session.isOpen()) {
-                session.close();
-            }
         }
     }
 
@@ -70,8 +62,6 @@ public class UserDaoHibernateImpl implements UserDao {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
             }
-        } finally {
-            session.close();
         }
     }
 
@@ -87,8 +77,6 @@ public class UserDaoHibernateImpl implements UserDao {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
             }
-        } finally {
-            session.close();
         }
     }
 
@@ -99,16 +87,11 @@ public class UserDaoHibernateImpl implements UserDao {
         try {
             session.beginTransaction();
             users = session.createQuery("from User").getResultList();
-//            for (User user : users) {
-//                System.out.println(user);
-//            }
             session.getTransaction().commit();
         } catch (Exception e) {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
             }
-        } finally {
-            session.close();
         }
         System.out.println(users);
         return users;
@@ -125,8 +108,6 @@ public class UserDaoHibernateImpl implements UserDao {
             if (session.getTransaction().isActive()) {
                 session.getTransaction().rollback();
             }
-        } finally {
-            session.close();
         }
     }
 }
