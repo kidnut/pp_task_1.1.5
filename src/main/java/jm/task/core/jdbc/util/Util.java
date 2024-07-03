@@ -18,12 +18,11 @@ public class Util {
     private static final String SCHEMA = "pre_project";
     private static final String USER = "kidnut";
     private static final String PASSWORD = "root";
+    private static SessionFactory sessionFactory;
 
     public String getSCHEMA() {
         return SCHEMA;
     }
-
-    private static SessionFactory sessionFactory;
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
